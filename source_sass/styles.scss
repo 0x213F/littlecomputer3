@@ -4,3 +4,470 @@
 @import "variables";
 @import "mixins";
 @import "base";
+
+$primary-color: #6599FF;
+$secondary-color: #FAFAFA;
+$tertiary-color: #2B3E42;
+$fade: .1s;
+
+* {
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
+}
+
+body {
+  background-color: $tertiary-color;
+}
+
+#first_tile {
+  top: 60px;
+  height: 780px;
+  position: absolute;
+  background-color: $primary-color;
+}
+
+#second_tile {
+  top: 840px;
+  height: 640px;
+  position: absolute;
+  background-color: $secondary-color;
+  z-index: -1;
+}
+
+#third_tile {
+  top: 1480px;
+  height: 590px;
+  position: absolute;
+  background-color: $primary-color;
+  z-index: -1;
+
+  p {
+    color: $secondary-color;
+  }
+
+  .arrow {
+    font-size: 100px;
+    line-height: 590px;
+    color: #FEFEFE;
+  }
+
+  .left {
+    padding-left: 50px;
+    float: left;
+  }
+
+  .right {
+    padding-right: 50px;
+    float: right;
+  }
+
+  .hide {
+    display: none;
+  }
+}
+
+#fourth_tile {
+  top: 2070px;
+  height: 590px;
+  position: absolute;
+  background-image: url("../media/background.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  z-index: -1;
+}
+
+/* HEADER */
+
+#header {
+  height: 78px;
+  width: 100%;
+  position: fixed;
+  z-index: 127;
+  background-color: #2B3E42;
+
+  h1 {
+    /*font-family: 'Titillium Web', sans-serif;*/
+    font-family: 'Baloo Tamma', cursive;
+    color: $secondary-color;
+    font-size: 18px;
+    line-height: 78px;
+    font-weight: 600;
+
+    float:left;
+    padding-left: 30px;
+  }
+
+  ul {
+    list-style: none;
+    display: block;
+    float: right;
+    font-weight: 400;
+
+    /*font-family: 'Titillium Web', sans-serif;*/
+    font-family: 'Baloo Tamma', cursive;
+    margin-right: 30px;
+
+    .selected {
+      color: $primary-color!important;
+    }
+  }
+
+  li {
+    display: inline;
+
+    color: $secondary-color;
+    font-size: 15px;
+    line-height: 78px;
+    margin-left: 30px;
+    cursor: pointer;
+  }
+
+  li a {
+    text-decoration: none;
+    color: $secondary-color;
+  }
+
+}
+
+/* TILE */
+
+.tile {
+  width: 100%;
+
+  h1 {
+    padding: 60px;
+    font-family: 'Dosis', sans-serif;
+    text-align: center;
+    color: $secondary-color;
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 300;
+  }
+
+  h2 {
+    padding: 60px;
+    font-family: 'Dosis', sans-serif;
+    color: $secondary-color;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  p {
+    padding: 60px;
+    font-family: 'Dosis', sans-serif;
+    /* color: #000; */
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+}
+
+.videos {
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+}
+
+.buttons {
+  margin: 0 auto;
+  width: 500px;
+
+  .secondary {
+    height: 40px;
+    width: 160px;
+    padding: 6px;
+    font-size: 14px;
+    background-color: $tertiary-color;
+    color: $secondary-color;
+    border: 2px solid $secondary-color;
+    border-radius: 5px;
+    text-align: center;
+    -webkit-transition: color $fade linear, border $fade linear;
+    -moz-transition: color $fade linear, border $fade linear;
+    -o-transition: color $fade linear, border $fade linear;
+    -ms-transition: color $fade linear, border $fade linear;
+    transition: color $fade linear, border $fade linear;
+  }
+
+  .secondary:hover {
+    color: $primary-color;
+    cursor: pointer; cursor: hand;
+    -webkit-transition: color $fade linear;
+    -moz-transition: color $fade linear;
+    -o-transition: color $fade linear;
+    -ms-transition: color $fade linear;
+    transition: color $fade linear;
+  }
+
+  .primary {
+    height: 40px;
+    width: 160px;
+    padding: 6px;
+    font-size: 14px;
+    background-color: $secondary-color;
+    color: $tertiary-color;
+    border: 2px solid $tertiary-color;
+    border-radius: 5px;
+    text-align: center;
+    -webkit-transition: color $fade linear, border $fade linear;
+    -moz-transition: color $fade linear, border $fade linear;
+    -o-transition: color $fade linear, border $fade linear;
+    -ms-transition: color $fade linear, border $fade linear;
+    transition: color $fade linear, border $fade linear;
+  }
+
+  .primary:hover {
+    color: $primary-color;
+    border: 2px solid $tertiary-color;
+    cursor: pointer; cursor: hand;
+    -webkit-transition: color $fade linear, border $fade linear;
+    -moz-transition: color $fade linear, border $fade linear;
+    -o-transition: color $fade linear, border $fade linear;
+    -ms-transition: color $fade linear, border $fade linear;
+    transition: color $fade linear, border $fade linear;
+  }
+}
+
+.grid {
+  margin: 0 auto;
+  width: 700px;
+  height: 500px;
+}
+
+.item {
+  width: 200px;
+  float: left;
+  margin-left: 16px;
+  margin-right: 16px;
+  height: 225px;
+  margin-bottom: 25px;
+  background-color: $secondary-color;
+
+  h1 {
+    font-size: 30px;
+    color: $tertiary-color;
+    line-height: 40px;
+    margin: 0 auto;
+    padding: 0px;
+    padding-bottom: 10px;
+  }
+
+  p {
+    font-size: 20px;
+    color: $tertiary-color;
+    padding: 0px;
+    line-height: 25px;
+    font-weight: 600;
+  }
+
+}
+
+.item-circle {
+  background-color: $primary-color;
+  font-size: 30px;
+  color: #FEFEFE;
+  height: 60px;
+  width: 60px;
+  border-radius: 60px;
+  text-align: center;
+  line-height: 60px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+/* FOOTER */
+
+#footer {
+  height: 78px;
+  width: 100%;
+  background-color: #2B3E42;
+  position: absolute;
+  top: 2660px;
+
+  .social {
+    color: #FEFEFE;
+    font-size: 20px;
+    line-height: 78px;
+  }
+
+  h1 {
+    /*font-family: 'Titillium Web', sans-serif;*/
+    font-family: 'Baloo Tamma', cursive;
+    color: #FEFEFE;
+    font-size: 20px;
+    line-height: 78px;
+    font-weight: 600;
+
+    float:left;
+    padding-left: 30px;
+  }
+
+  p {
+    padding-left: 33px;
+    text-align: left;
+    font-size: 12px;
+    color:#FEFEFE;
+    font-family:menlo;
+    line-height: 78px;
+    float: left;
+
+    a {
+      text-decoration: none;
+      color: #FEFEFE;
+    }
+  }
+
+  ul {
+    list-style: none;
+    display: block;
+    float: right;
+    margin-right: 33px;
+  }
+
+  li {
+    display: inline;
+
+    color: #FEFEFE;
+    margin-left: 33px;
+    cursor: pointer;
+
+    a {
+      text-decoration: none;
+      color: #FEFEFE;
+    }
+  }
+}
+
+
+/* MODAL SCSS - put this in another file */
+
+.modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: $secondary-color;
+  z-index: 255;
+
+  .close {
+    font-size: 80px;
+    padding: 40px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: $tertiary-color;
+  }
+
+  p{
+    text-align: center;
+    color: $tertiary-color;
+    font-size: 100px;
+    line-height: 100px;
+    margin-top: 160px;
+    font-family: 'Dosis', sans-serif;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+/* CPU SCSS - put this in another file */
+
+.cpu {
+  margin: auto;
+  padding: 0px;
+  border: 0px;
+
+  width: 400px;
+  height: 260px;
+  position: relative;
+
+  canvas{
+    margin: auto;
+    padding: 0px;
+    border: 0px;
+
+    width: 400px;
+    height: 260px;
+    position: relative;
+    background-color: none;
+    z-index: 3;
+  }
+
+  .box {
+    border: 5px solid #FEFEFE;
+    border-radius: 10px;
+  }
+
+  .mem {
+    position: absolute;
+    top: 0px;
+    left: 290px;
+    height: 250px;
+    width: 100px;
+  }
+
+  .pc {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 50px;
+    width: 110px;
+  }
+
+  .alu {
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    height: 50px;
+    width: 60px;
+  }
+
+  .isdu {
+    position: absolute;
+    top: 180px;
+    left: 0px;
+    height: 70px;
+    width: 125px;
+  }
+
+  .mar {
+    position: absolute;
+    top: 0px;
+    left: 145px;
+    height: 40px;
+    width: 110px;
+  }
+
+  .reg {
+    position: absolute;
+    top: 70px;
+    left: 145px;
+    height: 40px;
+    width: 110px;
+  }
+
+  .mdr {
+    position: absolute;
+    top: 140px;
+    left: 195px;
+    height: 40px;
+    width: 60px;
+  }
+
+  .ir {
+    position: absolute;
+    top: 210px;
+    left: 195px;
+    height: 40px;
+    width: 60px;
+  }
+}
