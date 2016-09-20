@@ -103,9 +103,6 @@ $(document).ready(function() {
   $('.header-section').click(function() {
     switch (this.id) {
       case "download":
-        $("html, body").animate({
-          scrollTop: document.getElementById("download");
-        });
         break;
       case "about":
         break;
