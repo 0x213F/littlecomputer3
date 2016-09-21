@@ -30,6 +30,8 @@ function line_h(cvs, s, x, y, w, h) {
 
 var condensed_header = false;
 var curr_section = "download";
+var curr_car = 3;
+var wait = false;
 
 /* on scroll */
 
@@ -59,15 +61,13 @@ document.onscroll = function() {
   }
   //////////////////////////////////////////////////////////
   if(curr_section==="download"&&window.pageYOffset<800) return;
-  else if(curr_section==="about"&&window.pageYOffset>=800&&window.pageYOffset<1500) return;
-  else if(curr_section==="features"&&window.pageYOffset>=1500&&window.pageYOffset<2900) return;
-  else if(curr_section==="opensource"&&window.pageYOffset>=2900) return;
+  else if(curr_section==="about"&&window.pageYOffset>=800&&window.pageYOffset<1430) return;
+  else if(curr_section==="features"&&window.pageYOffset>=1430&&window.pageYOffset<1700) return;
+  else if(curr_section==="opensource"&&window.pageYOffset>=1700) return;
   else update_header();
 };
 
 /* on document ready */
-
-$(document).ready(function() {
 
   $('.button').click(function() {
     var modal;
@@ -103,12 +103,16 @@ $(document).ready(function() {
   $('.header-section').click(function() {
     switch (this.id) {
       case "download":
+        window.scrollTo(0,0);
         break;
       case "about":
+        window.scrollTo(0,840);
         break;
       case "features":
+        window.scrollTo(0,1430);
         break;
       case "opensource":
+        window.scrollTo(0,1720);
         break;
       default: return;
     }
@@ -117,54 +121,157 @@ $(document).ready(function() {
   });
 
   $('#left-arrow').click(function() {
-    console.log("left");
+    if(wait===true) return;
+    switch (curr_car) {
+      case 1:
+        fade_out_left("#t-1","#v-1");
+        fade_in_right("#t-3","#v-3");
+        curr_car = 3;
+        break;
+      case 2:
+        fade_out_left("#t-2","#v-2");
+        fade_in_right("#t-1","#v-1");
+        curr_car = 1;
+        break;
+      case 3:
+        fade_out_left("#t-3","#v-3");
+        fade_in_right("#t-2","#v-2");
+        curr_car = 2;
+        break;
+      default:
+        return;
+    }
   });
 
   $('#right-arrow').click(function() {
-
+    if(wait===true) return;
+    switch (curr_car) {
+      case 1:
+        fade_out_right("#t-1","#v-1");
+        fade_in_left("#t-2","#v-2");
+        curr_car = 2;
+        break;
+      case 2:
+        fade_out_right("#t-2","#v-2");
+        fade_in_left("#t-3","#v-3");
+        curr_car = 3;
+        break;
+      case 3:
+        fade_out_right("#t-3","#v-3");
+        fade_in_left("#t-1","#v-1");
+        curr_car = 1;
+        break;
+      default:
+        return;
+    }
   });
-
-});
 
 //////////////////////////////////////////////////////////
 
 function update_header() {
-  if(window.pageYOffset<800) {
+  if(window.pageYOffset<=800) {
     curr_section = "download";
     $("#download").addClass("selected");
     $("#about").removeClass("selected");
-  } else if(window.pageYOffset>800 && window.pageYOffset < 1500) {
+  } else if(window.pageYOffset>=800 && window.pageYOffset < 1430) {
     curr_section = "about";
     $("#download").removeClass("selected");
     $("#about").addClass("selected");
     $("#features").removeClass("selected");
-  } else if(window.pageYOffset>1500 && window.pageYOffset < 2900) {
+  } else if(window.pageYOffset>=1430 && window.pageYOffset < 1700) {
     curr_section = "features";
     $("#about").removeClass("selected");
     $("#features").addClass("selected");
     $("#opensource").removeClass("selected");
-  } else if(window.pageYOffset>2900) {
+  } else if(window.pageYOffset>=1700) {
     curr_section = "opensource";
     $("#features").removeClass("selected");
     $("#opensource").addClass("selected");
   }
-  console.log(curr_section);
 }
 
-function fade_out(text_id, video_id) {
+function fade_out_left(text_id, video_id) {
+  wait = true;
   $(text_id).animate({
-      top: "-=50px"
+      left: "-=100%",
   }, 500, function(){
-
+    $(text_id).addClass("hide");
+    $(text_id).removeAttr("style");
   });
+
   $(video_id).animate({
-      bottom: "-=50px"
+      left: "-=100%"
   }, 500, function(){
-
+    $(video_id).addClass("hide");
+    $(video_id).removeAttr("style");
   });
-  console.log("fadeout");
 }
 
-function fade_in(text_id, video_id) {
+function fade_in_right(text_id, video_id) {
+  setTimeout(function(){
+    $(text_id).animate({
+        left: "+=100%",
+    }, 10, function(){
+      $(text_id).removeClass("hide");
+      $(text_id).animate({
+          left: "-=100%",
+      }, 500, function(){
 
+      });
+    });
+
+    $(video_id).animate({
+        left: "+=100%",
+    }, 10, function(){
+      $(video_id).removeClass("hide");
+      $(video_id).animate({
+          left: "-=100%",
+      }, 500, function(){
+        wait = false;
+      });
+    });
+  }, 400);
+}
+
+function fade_out_right(text_id, video_id) {
+  wait = true;
+  $(text_id).animate({
+      right: "-=100%",
+  }, 500, function(){
+    $(text_id).addClass("hide");
+    $(text_id).removeAttr("style");
+  });
+
+  $(video_id).animate({
+      right: "-=100%"
+  }, 500, function(){
+    $(video_id).addClass("hide");
+    $(video_id).removeAttr("style");
+  });
+}
+
+function fade_in_left(text_id, video_id) {
+  setTimeout(function(){
+    $(text_id).animate({
+        right: "+=100%",
+    }, 10, function(){
+      $(text_id).removeClass("hide");
+      $(text_id).animate({
+          right: "-=100%",
+      }, 500, function(){
+
+      });
+    });
+
+    $(video_id).animate({
+        right: "+=100%",
+    }, 10, function(){
+      $(video_id).removeClass("hide");
+      $(video_id).animate({
+          right: "-=100%",
+      }, 500, function(){
+        wait = false;
+      });
+    });
+  }, 400);
 }
