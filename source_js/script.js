@@ -103,20 +103,31 @@ document.onscroll = function() {
   $('.header-section').click(function() {
     switch (this.id) {
       case "download":
-        window.scrollTo(0,0);
+        // window.scrollTo(0,0);
+        $("html,body").animate({
+          scrollTop: "0px"
+        }, 500);
         break;
       case "about":
-        window.scrollTo(0,840);
+        // window.scrollTo(0,840);
+        $("html,body").animate({
+          scrollTop: "840px"
+        }, 500);
         break;
       case "features":
-        window.scrollTo(0,1430);
+        // window.scrollTo(0,1430);
+        $("html,body").animate({
+          scrollTop: "1430px"
+        }, 500);
         break;
       case "opensource":
-        window.scrollTo(0,1720);
+        // window.scrollTo(0,1720);
+        $("html,body").animate({
+          scrollTop: "1720px"
+        }, 500);
         break;
       default: return;
     }
-    console.log("d");
     setTimeout(function(){update_header();}, 500);
   });
 
