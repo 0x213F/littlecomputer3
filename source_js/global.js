@@ -2,7 +2,7 @@
 // Joshua Schultheiss 2016
 //
 
-var ping = new Audio("/media/boop.wav");
+var ping = new Audio("boop.wav");
 
 // These are our eight registers used throughout the LC-3
 var r0 = r1 = r2 = r3 = r4 = r5 = r6 = r7 = "0000000000000000";

@@ -2,6 +2,7 @@ function Node() {
   this.memory = [undefined, undefined];
   this.register = [undefined, undefined];
   this.pc = undefined;
+  this.cc = undefined;
   this.char = undefined
   this.next = null;
 }

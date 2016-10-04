@@ -1,6 +1,22 @@
-//
-// Joshua Schultheiss 2016
-//
+/*
+
+function reg_st(reg, value);
+function reg_ld(reg);
+
+////////////////////////////////////////
+
+function binary_to_decimal(bin);
+function decimal_to_binary(dec);
+function hex_to_binary(hex);
+function binary_to_hex(bin);
+
+////////////////////////////////////////
+
+function adder(v1, v2);
+function twos(v1);
+function sext(v);
+
+*/
 
 function reg_st(reg, value) {
   switch (reg) {
@@ -64,24 +80,26 @@ function reg_ld(reg) {
   }
 }
 
-function binary_to_decimal(num) {
-  var res = 0, len = num.length, fac = 0;
-  if(num.charAt(0)=="0") {
+////////////////////////////////////////
+
+function binary_to_decimal(bin) {
+  var res = 0, len = bin.length, fac = 0;
+  if(bin.charAt(0)=="0") {
     for( x=0 ; x<len ; x++ ) {
-      if(num.charAt(len-x-1)=="1") {
+      if(bin.charAt(len-x-1)=="1") {
         res += 1*Math.pow(2,fac);
       }
       fac++;
     }
   } else {
-    var res = 0, len = num.length, fac = 0;
+    var res = 0, len = bin.length, fac = 0;
     for( x=0 ; x<len-1 ; x++ ) {
-      if(num.charAt(len-x-1)=="1") {
+      if(bin.charAt(len-x-1)=="1") {
         res += 1*Math.pow(2,fac);
       }
       fac++;
     }
-    if(num.charAt(0)=="1") {
+    if(bin.charAt(0)=="1") {
       res -= Math.pow(2,len-1);
     }
     return res;
@@ -89,17 +107,18 @@ function binary_to_decimal(num) {
   return res;
 }
 
-function decimal_to_binary(num) {
+function decimal_to_binary(dec) {
+  if(dec!=NaN) dec = dec.toString();
 
   // TODO: correct overflow value
-  // NOTE: this probably is not an issue
+  // NOTE: this probably is not an issue with LC-3 implementation
 
   var res = "0000000000000000", fac = 15;
-  if(num>=0) {
+  if(dec>=0) {
     for ( x=0 ; x<16 ; x++ ) {
-      if(num-Math.pow(2,fac)>=0){
+      if(dec-Math.pow(2,fac)>=0){
         res = res.replaceAt(x, "1");
-        num -= Math.pow(2,fac);
+        dec -= Math.pow(2,fac);
       }
       fac--;
     }
@@ -108,74 +127,12 @@ function decimal_to_binary(num) {
     fac = 15;
     res = res.replaceAt(0, "1");
     for ( x=0 ; x<16 ; x++ ) {
-      if(neg+Math.pow(2,fac)<=num){
+      if(neg+Math.pow(2,fac)<=dec){
         res = res.replaceAt(x, "1");
         neg += Math.pow(2,fac);
       }
       fac--;
     }
-  }
-  return res;
-}
-
-function adder(v1, v2) {
-  var c = "0", res = "0000000000000000", x = 15;
-  while(x >= 0) {
-    if( c == "0" ) {
-      if       ( v1.charAt(x) == "1" && v2.charAt(x) == "1" ) {
-        res = res.replaceAt(x, "0");
-        c = "1";
-      } else if( v1.charAt(x) == "0" && v2.charAt(x) == "0" ) {
-        res = res.replaceAt(x, "0");
-        c = "0";
-      } else if( v1.charAt(x) == "0" && v2.charAt(x) == "1" ) {
-        res = res.replaceAt(x, "1");
-        c = "0";
-      } else if( v1.charAt(x) == "1" && v2.charAt(x) == "0" ) {
-        res = res.replaceAt(x, "1");
-        c = "0";
-      }
-    } else {
-      if       ( v1.charAt(x) == "1" && v2.charAt(x) == "1" ) {
-        res = res.replaceAt(x, "1");
-        c = "1";
-      } else if( v1.charAt(x) == "0" && v2.charAt(x) == "0" ) {
-        res = res.replaceAt(x, "1");
-        c = "0";
-      } else if( v1.charAt(x) == "0" && v2.charAt(x) == "1" ) {
-        res = res.replaceAt(x, "0");
-        c = "1";
-      } else if( v1.charAt(x) == "1" && v2.charAt(x) == "0" ) {
-        res = res.replaceAt(x, "0");
-        c = "1";
-      }
-    }
-    x--;
-  }
-  return res;
-}
-
-function twos(v1) {
-  for( x=0 ; x<16 ; x++ ) {
-    if( v1.charAt(x)=="0" ) {
-      v1 = v1.replaceAt(x, "1");
-    } else {
-      v1 = v1.replaceAt(x, "0");
-    }
-  }
-  v1 = adder(v1,"0000000000000001");
-  return v1;
-}
-
-function sext(v) {
-  var res;
-  if( v.charAt(0)=="1" ) {
-    res = "1111111111111111";
-  } else {
-    res = "0000000000000000";
-  }
-  for(x=0;x<v.length;x++) {
-    res = res.replaceAt(15-x, v.charAt(v.length-x-1));
   }
   return res;
 }
@@ -329,7 +286,71 @@ function binary_to_hex(bin) {
   return res;
 }
 
-// TODO BELOW
+////////////////////////////////////////
+
+function adder(v1, v2) {
+  var c = "0", res = "0000000000000000", x = 15;
+  while(x >= 0) {
+    if( c == "0" ) {
+      if       ( v1.charAt(x) == "1" && v2.charAt(x) == "1" ) {
+        res = res.replaceAt(x, "0");
+        c = "1";
+      } else if( v1.charAt(x) == "0" && v2.charAt(x) == "0" ) {
+        res = res.replaceAt(x, "0");
+        c = "0";
+      } else if( v1.charAt(x) == "0" && v2.charAt(x) == "1" ) {
+        res = res.replaceAt(x, "1");
+        c = "0";
+      } else if( v1.charAt(x) == "1" && v2.charAt(x) == "0" ) {
+        res = res.replaceAt(x, "1");
+        c = "0";
+      }
+    } else {
+      if       ( v1.charAt(x) == "1" && v2.charAt(x) == "1" ) {
+        res = res.replaceAt(x, "1");
+        c = "1";
+      } else if( v1.charAt(x) == "0" && v2.charAt(x) == "0" ) {
+        res = res.replaceAt(x, "1");
+        c = "0";
+      } else if( v1.charAt(x) == "0" && v2.charAt(x) == "1" ) {
+        res = res.replaceAt(x, "0");
+        c = "1";
+      } else if( v1.charAt(x) == "1" && v2.charAt(x) == "0" ) {
+        res = res.replaceAt(x, "0");
+        c = "1";
+      }
+    }
+    x--;
+  }
+  return res;
+}
+
+function twos(v1) {
+  for( x=0 ; x<16 ; x++ ) {
+    if( v1.charAt(x)=="0" ) {
+      v1 = v1.replaceAt(x, "1");
+    } else {
+      v1 = v1.replaceAt(x, "0");
+    }
+  }
+  v1 = adder(v1,"0000000000000001");
+  return v1;
+}
+
+function sext(v) {
+  var res;
+  if( v.charAt(0)=="1" ) {
+    res = "1111111111111111";
+  } else {
+    res = "0000000000000000";
+  }
+  for(x=0;x<v.length;x++) {
+    res = res.replaceAt(15-x, v.charAt(v.length-x-1));
+  }
+  return res;
+}
+
+////////////////////////////////////////
 
 function binary_to_assembly_2(inst) {
   var temp = inst.substr(0,4);

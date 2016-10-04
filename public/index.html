@@ -1,42 +1,51 @@
-<!--
-// Joshua Schultheiss 2016
---->
-
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-
+    <!-- META -->
+    <title>LC-3</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
+    <!-- JQUERY -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+
+    <!-- GOOGLEFONTS -->
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
-    <!-- TODO -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+    <!-- TETHER -->
+    <link rel="stylesheet" href="lib/tether/dist/css/tether.min.css">
+    <script src="lib/tether/dist/js/tether.min.js"></script>
 
-    <link rel="stylesheet" href="lib/codemirror/codemirror.css">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- CODEMIRROR -->
+    <link rel="stylesheet" href="lib/codemirror/lib/codemirror.css">
+    <script src="lib/codemirror/lib/codemirror.js"></script>
+
+    <!-- MYSYLE -->
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+
+    <!-- DEBUGGING -->
+    <script src="http://localhost:35729/livereload.js"></script>
   </head>
   <body>
-    <div id="header">
-        <h4 style="float:left;line-height:45px;padding-left:30px;padding-right:31px;">Little Computer 3</h4>
-        <!--<div id="tabs">
-          <div class="tab tab_focus"><input class="tab_name" placeholder="file name" value="example.asm"></input></div>
-          <div class="tab"><input class="tab_name" placeholder="file name" value="example.bin"></input></div>
-        </div>
-        <div class="tab_add">+</div>-->
 
-
-        <!-- Place this tag where you want the button to render. -->
+    <header id="header">
+        <h1 style="float:left;line-height:45px;padding-left:30px;padding-right:31px;">Little Computer 3</h1>
 
         <i id="styles" class="fa fa-cog top_right top_last" aria-hidden="true" title="settings"></i>
         <i id="github" class="fa fa-github top_right" aria-hidden="true" title="github"></i>
         <i id="help" class="fa fa-question-circle top_right" aria-hidden="true" title="information"></i>
         <i id="debugger" class="fa fa-globe top_right" aria-hidden="true" title="debugger"></i>
+
         <i id="play" class="fa fa-play-circle top_left top_first" aria-hidden="true" title="execute"></i>
         <i id="step" class="fa fa-arrow-circle-down top_left" aria-hidden="true" title="reset"></i>
-    </div>
+    </header>
+
     <div id="stepper" class="hide">
       <p style="text-align:center;margin-top:29px;margin-bottom:29px;">
         <button id="skip-backward" class="step_button"><i class="fa fa-fast-backward" aria-hidden="true" title="skip backwards"></i></button>
@@ -45,12 +54,6 @@
         <button id="step-forward" class="step_button"><i class="fa fa-hand-o-right" aria-hidden="true" title="step forward"></i></button>
         <button id="pulse-forward" class="step_button"><i class="fa fa-forward" aria-hidden="true" title="pulse forward"></i></button>
         <button id="skip-forward" class="step_button"><i class="fa fa-fast-forward" aria-hidden="true" title="skip forward"></i></button>
-        <!--<p style="text-align:center;padding: 3px;">the middle 4 steppers above work</p>
-        <p style="text-align:center;padding: 3px;">lc3sim-tk coming soon</p>-->
-        <!--<p style="text-align:center;padding: 3px;">test</p>
-        <p style="text-align:center;padding: 3px;">test</p>
-        <p style="text-align:center;padding: 3px;">test</p>
-        <p style="text-align:center;padding: 3px;">test</p>-->
       </p>
     </div>
     <!--<div id="options">
@@ -333,8 +336,7 @@
       <div id="terminal"></div>
     </div>
 
-    <script src="lib/jquery-2.1.3.min/index.js"></script>
+    <!-- MYCODE -->
     <script src="js/script.js"></script>
-    <script src="http://localhost:35729/livereload.js"></script>
   </body>
 </html>

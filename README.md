@@ -22,6 +22,12 @@ Try the sample program by following these simple steps:
 
 ----------
 
+Last updated: October 4th
+
+Current goal: transition to the new stack (bower, grunt, scss, bootstrap, etc)
+
+----------
+
 **Wanna Talk?**
 
 http://schultheiss.io/connect.html
