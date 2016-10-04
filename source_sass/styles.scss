@@ -5,497 +5,432 @@
 @import "mixins";
 @import "base";
 
-$primary-color: #6599FF;
-$secondary-color: #FAFAFA;
-$tertiary-color: #2B3E42;
-$fade: .1s;
-
-* {
+body {
+  font-family: $font-primary;
   padding: 0px;
   border: 0px;
   margin: 0px;
 }
 
-body {
-  background-color: $tertiary-color;
-}
-
-#first_tile {
-  top: 60px;
-  height: 780px;
-  position: absolute;
-  background-color: $primary-color;
-}
-
-#second_tile {
-  top: 840px;
-  height: 640px;
-  position: absolute;
-  background-color: $secondary-color;
-  z-index: 1;
-}
-
-#third_tile {
-  top: 1480px;
-  height: 590px;
-  position: absolute;
-  background-color: $primary-color;
-  z-index: -1;
-
-  p {
-    color: $secondary-color;
-    font-weight: 600;
-  }
-
-  .arrow {
-    font-size: 100px;
-    line-height: 590px;
-    color: #FEFEFE;
-  }
-
-  .left {
-    padding-left: 50px;
-    float: left;
-  }
-
-  .right {
-    padding-right: 50px;
-    float: right;
-  }
-
-  .hide {
-    display: none;
-  }
-
-  #t-1, #t-2, #t-3, #v-1, #v-2, #v-3 {
-    position: relative;
-  }
-}
-
-#fourth_tile {
-  top: 2070px;
-  height: 590px;
-  position: absolute;
-  background-image: url("../media/background.jpg");
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-
-  z-index: 1;
-
-  h1 {
-    text-shadow: 2px 2px 2px $tertiary-color;
-  }
-
-  p {
-    color: $secondary-color;
-    font-size: 20px;
-    text-shadow: 4px 4px 4px $tertiary-color;
-    padding: 0px;
-    font-weight: 600;
-  }
-
-  ul {
-    font-family: 'Dosis', sans-serif;
-    font-size: 20px;
-    line-height: 25px;
-    display: block;
-    float: left;
-  }
-
-  li {
-    text-align: center;
-  }
-}
-
 /* HEADER */
 
 #header {
-  height: 78px;
+  font-family: $font-primary;
   width: 100%;
-  position: fixed;
-  z-index: 127;
-  background-color: #2B3E42;
-
-  h1 {
-    /*font-family: 'Titillium Web', sans-serif;*/
-    font-family: 'Baloo Tamma', cursive;
-    color: $secondary-color;
-    font-size: 18px;
-    line-height: 78px;
-    font-weight: 600;
-
-    float:left;
-    padding-left: 30px;
-  }
-
-  ul {
-    list-style: none;
-    display: block;
-    float: right;
-    font-weight: 400;
-
-    /*font-family: 'Titillium Web', sans-serif;*/
-    font-family: 'Baloo Tamma', cursive;
-    margin-right: 30px;
-
-    .selected {
-      color: $primary-color!important;
-    }
-  }
-
-  li {
-    display: inline;
-
-    color: $secondary-color;
-    font-size: 15px;
-    line-height: 78px;
-    margin-left: 30px;
-    cursor: pointer;
-  }
-
-  li a {
-    text-decoration: none;
-    color: $secondary-color;
-  }
-
+  height: 45px;
+  background-color: $color-primary;
+  color: white;
+  z-index: 3;
+  font-size: 15px;
 }
 
-/* TILE */
-
-.tile {
-  width: 100%;
-
-  h1 {
-    padding: 60px;
-    font-family: 'Dosis', sans-serif;
-    text-align: center;
-    color: $secondary-color;
-    font-size: 60px;
-    line-height: 60px;
-    font-weight: 300;
-  }
-
-  h2 {
-    padding: 60px;
-    font-family: 'Dosis', sans-serif;
-    color: $secondary-color;
-    font-size: 30px;
-    line-height: 30px;
-    font-weight: 400;
-    text-align: center;
-  }
-
-  p {
-    padding: 60px;
-    font-family: 'Dosis', sans-serif;
-    /* color: #000; */
-    font-size: 18px;
-    line-height: 27px;
-    font-weight: 400;
-    text-align: center;
-  }
-
+.top_left {
+  line-height:45px!important;cursor:pointer;cursor:hand;margin-right:30px;font-size:30px!important;float:right;
 }
 
-.videos {
-  width: 400px;
-  display: block;
-  margin: 0 auto;
+.top_first {
+  margin-right: 230px!important;
 }
 
-.buttons {
-  margin: 0 auto;
-  width: 500px;
-
-  .secondary {
-    height: 40px;
-    width: 160px;
-    padding: 6px;
-    font-size: 14px;
-    background-color: $tertiary-color;
-    color: $secondary-color;
-    border: 2px solid $secondary-color;
-    border-radius: 5px;
-    text-align: center;
-    -webkit-transition: color $fade linear, border $fade linear;
-    -moz-transition: color $fade linear, border $fade linear;
-    -o-transition: color $fade linear, border $fade linear;
-    -ms-transition: color $fade linear, border $fade linear;
-    transition: color $fade linear, border $fade linear;
-  }
-
-  .secondary:hover {
-    color: $primary-color;
-    cursor: pointer; cursor: hand;
-    -webkit-transition: color $fade linear;
-    -moz-transition: color $fade linear;
-    -o-transition: color $fade linear;
-    -ms-transition: color $fade linear;
-    transition: color $fade linear;
-  }
-
-  .primary {
-    height: 40px;
-    width: 160px;
-    padding: 6px;
-    font-size: 14px;
-    background-color: $secondary-color;
-    color: $tertiary-color;
-    border: 2px solid $tertiary-color;
-    border-radius: 5px;
-    text-align: center;
-    -webkit-transition: color $fade linear, border $fade linear;
-    -moz-transition: color $fade linear, border $fade linear;
-    -o-transition: color $fade linear, border $fade linear;
-    -ms-transition: color $fade linear, border $fade linear;
-    transition: color $fade linear, border $fade linear;
-  }
-
-  .primary:hover {
-    color: $primary-color;
-    border: 2px solid $tertiary-color;
-    cursor: pointer; cursor: hand;
-    -webkit-transition: color $fade linear, border $fade linear;
-    -moz-transition: color $fade linear, border $fade linear;
-    -o-transition: color $fade linear, border $fade linear;
-    -ms-transition: color $fade linear, border $fade linear;
-    transition: color $fade linear, border $fade linear;
-  }
+.top_right {
+  line-height:45px!important;cursor:pointer;cursor:hand;margin-right:30px;font-size:30px!important;float:right;
 }
 
-.grid {
-  margin: 0 auto;
-  width: 700px;
-  height: 500px;
+.top_last {
+  margin-right: 60px;
 }
 
-.item {
-  width: 200px;
+#tabs {  }
+
+.tab {
   float: left;
-  margin-left: 16px;
-  margin-right: 16px;
-  height: 225px;
-  margin-bottom: 25px;
-
-  h1 {
-    font-size: 30px;
-    color: $tertiary-color;
-    line-height: 40px;
-    margin: 0 auto;
-    padding: 0px;
-    padding-bottom: 10px;
-  }
-
-  p {
-    font-size: 20px;
-    color: $tertiary-color;
-    padding: 0px;
-    line-height: 25px;
-    font-weight: 600;
-  }
-
+  margin-top: 22px;
+  margin-left: -1px;
+  width: 100px;
+  height: 22px;
+  border: 1px solid white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
-.item-circle {
-  background-color: $primary-color;
-  font-size: 30px;
-  color: #FEFEFE;
-  height: 60px;
-  width: 60px;
-  border-radius: 60px;
+.tab_focus {
+  background-color: white;
+  color: $color-primary;
+}
+
+input.tab_name {
+  top: 4px;
+  padding: 0px;
+  position: relative;
+  display: block;
+  float: left;
   text-align: center;
-  line-height: 60px;
-  margin: 0 auto;
-  margin-top: 20px;
+  font-size: 10px;
+  line-height: 15px;
+  background-color: inherit;
+  color: inherit;
+  width: 100px;
+  height: 15px;
+  font-style: italic;
+  outline: inherit;
 }
 
-/* FOOTER */
+input.tab_focus:focus { outline: none; color: black; }
+input.tab_focus:hover { outline: none; color: black; }
 
-#footer {
-  height: 78px;
-  width: 100%;
-  background-color: #2B3E42;
+
+
+.tab_add {
+  float: left;
+  margin-top: 22px;
+  margin-left: -1px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: white;
+  background-color: $color-primary;
+  font-size: 10px;
+  text-align: center;
+  line-height: 22px;
+  cursor:pointer;cursor:hand;
+}
+
+/* SIDEBAR */
+
+#sidebar_debugger, #sidebar_reference, #sidebar_github, #sidebar_styles, #sidebar_help {
+  font-family: $font-primary;
+  width: 450px;
+  height: calc(100% - 45px);
+  background-color: $color-secondary;
+  border-left: 1px solid #DDD;
+  float: right;
+  top: 45px;
+  right: 0px;
   position: absolute;
-  top: 2660px;
-
-  .social {
-    color: #FEFEFE;
-    font-size: 20px;
-    line-height: 78px;
-  }
-
-  h1 {
-    /*font-family: 'Titillium Web', sans-serif;*/
-    font-family: 'Baloo Tamma', cursive;
-    color: #FEFEFE;
-    font-size: 20px;
-    line-height: 78px;
-    font-weight: 600;
-
-    float:left;
-    padding-left: 30px;
-  }
-
-  p {
-    padding-left: 33px;
-    text-align: left;
-    font-size: 12px;
-    color:#FEFEFE;
-    font-family:menlo;
-    line-height: 78px;
-    float: left;
-
-    a {
-      text-decoration: none;
-      color: #FEFEFE;
-    }
-  }
-
-  ul {
-    list-style: none;
-    display: block;
-    float: right;
-    margin-right: 33px;
-  }
-
-  li {
-    display: inline;
-
-    color: #FEFEFE;
-    margin-left: 33px;
-    cursor: pointer;
-
-    a {
-      text-decoration: none;
-      color: #FEFEFE;
-    }
-  }
+  z-index: 1;
 }
 
-
-/* MODAL SCSS - put this in another file */
-
-.modal {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background-color: $secondary-color;
-  z-index: 255;
-
-  .close {
-    font-size: 80px;
-    padding: 40px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    color: $tertiary-color;
-  }
-
-  p{
-    text-align: center;
-    color: $tertiary-color;
-    font-size: 100px;
-    line-height: 100px;
-    margin-top: 160px;
-    font-family: 'Dosis', sans-serif;
-  }
+#sidebar_help{
+  height: calc(100% - 63px);
+  padding-bottom: 18px;
 }
 
 .hide {
-  display: none;
+  visibility: hidden;
 }
 
-/* CPU SCSS - put this in another file */
+/* STYLE TAB */
 
-.cpu {
-  margin: auto;
-  padding: 0px;
-  border: 0px;
-
-  width: 400px;
-  height: 260px;
-  position: relative;
-
-  canvas{
-    margin: auto;
-    padding: 0px;
-    border: 0px;
-
-    width: 400px;
-    height: 260px;
-    position: relative;
-    background-color: none;
-    z-index: 3;
-  }
-
-  .box {
-    border: 5px solid #FEFEFE;
-    border-radius: 10px;
-  }
-
-  .mem {
-    position: absolute;
-    top: 0px;
-    left: 290px;
-    height: 250px;
-    width: 100px;
-  }
-
-  .pc {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 50px;
-    width: 110px;
-  }
-
-  .alu {
-    position: absolute;
-    top: 80px;
-    left: 0px;
-    height: 50px;
-    width: 60px;
-  }
-
-  .isdu {
-    position: absolute;
-    top: 180px;
-    left: 0px;
-    height: 70px;
-    width: 125px;
-  }
-
-  .mar {
-    position: absolute;
-    top: 0px;
-    left: 145px;
-    height: 40px;
-    width: 110px;
-  }
-
-  .reg {
-    position: absolute;
-    top: 70px;
-    left: 145px;
-    height: 40px;
-    width: 110px;
-  }
-
-  .mdr {
-    position: absolute;
-    top: 140px;
-    left: 195px;
-    height: 40px;
-    width: 60px;
-  }
-
-  .ir {
-    position: absolute;
-    top: 210px;
-    left: 195px;
-    height: 40px;
-    width: 60px;
-  }
+.style_square {
+    font-size: 12px;
+    margin-top: 29px;
+    margin-left: 29px;
+    float: left;
+    color: #333;
+    text-align: center;
+    table-layout: fixed;
+    width: 384px;
+    height: 160px;
+    border: 4px solid #DDD;
+    border-radius: 8px;
+    color: $color-primary;
+    border-collapse: separate;
+    cursor: default;
 }
+
+.style_square:hover {
+  cursor: pointer; cursor: hand;
+}
+
+.style_top {
+  width: 100%;
+  height: 40px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.style_side {
+  width: 100px;
+  height: 120px;
+  float: right;
+  border-bottom-right-radius: 4px;
+}
+
+.ss_one { background-color: white; }
+.st_one { background-color: $color-primary; }
+.sr_one { background-color: $color-secondary; }
+
+.ss_two { background-color: #ffe9d2; }
+.st_two { background-color: #CF5230; }
+.sr_two { background-color: #c6a090; }
+
+.ss_three { background-color: #243443; }
+.st_three { background-color: #778899; }
+.sr_three { background-color: #2b3e50; }
+
+.sidebar_button {
+  height: 30px;
+  width: 100px;
+  padding: 6px;
+  border: 1px solid $color-primary;
+  background-color: white;
+  color: $color-primary;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.sidebar_button:hover {
+  color: black;
+  cursor: pointer; cursor: hand;
+}
+
+ul.help_list {
+    list-style: none;
+    margin-top: 29px;
+    margin-left: 100px;
+    display: block;
+}
+
+li.sel {
+    min-width: 65px;
+    font-size: 12px;
+    display: inline;
+    text-align: center;
+    border: solid $color-primary;
+    background-color: white;
+    color: $color-primary;
+    padding: 6px;
+    float: left;
+    user-select: none;
+    cursor: default;
+}
+
+/* ----------------------------------------------------------- */
+    /* DUMP TABLE SELECTOR */
+
+    ul.memory_dump {
+        list-style: none;
+        margin-top: 29px;
+        margin-left: 29px;
+        display: block;
+    }
+
+    li.selector {
+        min-width: 78.4px;
+        font-size: 12px;
+        display: inline;
+        text-align: center;
+        border: solid $color-primary;
+        background-color: white;
+        color: $color-primary;
+        padding: 6px;
+        float: left;
+        user-select: none;
+        cursor: default;
+    }
+
+    li.lef { border-width: 1px .5px 1px 1px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; }
+
+    li.mid { border-width: 1px .5px 1px .5px; }
+
+    li.rig { border-width: 1px 1px 1px .5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; }
+
+    li.enabled:hover { color: black; cursor: pointer; cursor: hand; }
+
+    li.active {
+        background-color: $color-primary;
+        color: $color-secondary !important;
+        cursor: default !important;
+    }
+
+
+/* ----------------------------------------------------------- */
+    /* MEMORY DUMP TABLE */
+
+    table.memory_values {
+        font-size: 12px;
+        margin-top: 30px;
+        margin-left: 29px;
+        float: left;
+        color: #333;
+        text-align: center;
+        table-layout: fixed;
+        width: 392px;
+        border: 1px solid $color-primary;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: white;
+        color: $color-primary;
+        border-collapse: separate;
+        cursor: default;
+    }
+
+    td.dump_table {
+      height: 27px;
+      text-align: center;
+    }
+
+    td.active {
+      /* TODO: transfer from jQuery */
+    }
+
+/* ----------------------------------------------------------- */
+    /* MEMORY DUMP BUTTONS AND INPUT */
+
+    button.left {
+      margin-left: 29px;
+      float: left;
+      width: 100px;
+      height: 30px;
+      padding: 0px;
+      border: 1px solid $color-primary;
+      border-bottom-left-radius: 5px;
+      border-top: 0px;
+      background-color:white;
+      color:$color-primary;
+    }
+
+    button.right {
+      padding: 0px;
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      float: left;
+      border: 1px solid $color-primary;
+      border-bottom-right-radius: 5px;
+      border-top: 0px;
+      background-color:white;
+      color:$color-primary;
+    }
+
+    button.active:hover {
+      color: black;
+      cursor: pointer; cursor: hand;
+    }
+
+    input.middle {
+      padding: 0px;
+      margin: 0px;
+      position: relative;
+      display: block;
+      float: left;
+      text-align: center;
+      border: 1px solid $color-primary;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+      background-color:white;
+      color:$color-primary;
+      width: 192px;
+      height: 30px;
+    }
+
+    input.middle:hover { color: black; }
+    input.middle:focus { outline: none; color: black; }
+
+/* ----------------------------------------------------------- */
+    /* REGISTER VALUES */
+
+    table.register {
+      width: 392px;
+      margin-top: 30px;
+      margin-left: 29px;
+      float: left;
+      color: #333;
+      text-align: center;
+      table-layout: fixed;
+      width: 392px;
+      border: 1px solid $color-primary;
+      border-radius: 5px;
+      background-color: white;
+      color: $color-primary;
+      border-collapse: separate;
+      cursor: default;
+      padding: 0px;
+    }
+
+    td.reg_reg {
+      font-weight: 900;
+      width: 50px;
+      text-align: center;
+      height:18px;
+    }
+
+    td.reg_binary {
+      width: 175px;
+      text-align: center;
+      height:18px;
+    }
+
+    td.reg_hex {
+      width: 65px;
+      text-align: center;
+      height:18px;
+    }
+
+    td.reg_decimal {
+      text-align: center;
+      height:18px;
+    }
+
+#terminal {
+  width: calc(100% - 10px);
+  height: calc(100% - 520px);
+  color: #00FF00;
+  background-color: black;
+  padding: 5px;
+  overflow: scroll;
+  text-overflow: scroll;
+  white-space: nowrap;
+  bottom: 0px;
+  position: absolute;
+}
+
+#editor {
+  font-size: 16px;
+  height: calc(100% - 45px);
+  width: calc(100% - 451px);
+  z-index: 1;
+  position: absolute;
+  top: 45px;
+}
+
+#stepper {
+  width: 450px;
+  height: calc(100% - 45px);
+  background-color: $color-secondary;
+  border-left: 1px solid #DDD;
+  float: right;
+  top: 45px;
+  right: 451px;
+  position: absolute;
+  z-index: 4;
+}
+
+.step_button {
+  height: 28px;
+  width: 50px;
+  border: 1px solid $color-primary;
+  background-color: white;
+  color: $color-primary;
+  font-size: 12px;
+  line-height: 28px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.step_button:hover {
+  color: black;
+  cursor: pointer; cursor: hand;
+}
+
+p.step_stack {
+
+}
+
+/* REGISTER TABLE */
+.opcode { padding-left:24px;padding-right:24px;padding-top: 12px;font-size:18px;font-weight: 600;}
+.syntax {padding-left:48px;padding-right:24px;padding-top: 12px;font-size:12px;}
+.documentation { padding-left:24px;padding-right:24px;padding-top: 12px;font-size:12px; }

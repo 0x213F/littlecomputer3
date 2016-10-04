@@ -1,20 +1,27 @@
-# Starter files for MP1
-Use the following commands in your vagrant development environment to get this up and running
-```bash
-git clone https://github.com/uiuc-web-programming/mp1_starter.git
-cd mp1_starter
-npm install
-bower install
-grunt compass
-grunt uglify
-grunt serve
-(the last three steps can be done together by just saying "grunt")
-```
+## Little Computer 3
 
-For MP1, you should edit the following:
-- `public/index.html` - this html file is served by default. You are going to change this for your MP.
-- `source_sass` folder - all sass files here will be compiled to `public/css/styles.css`
-- `js` folder - all javascript files here will be uglified and put in `public/js/script.js`
-- `public/media` - all your media files (images, videos, GIFs etc. ) go here. Use relative path to access these from your HTML files.
+----------
 
-**Do not edit anything under the `public\css` and `public\js` folders.** All things there are auto-generated and any changes you make there will get overwritten by Grunt.
+[Marketing Page](http://uiucwp.com/submissions/2/jschlth2/S942CQ/public/index.html)
+
+The goal of this project is to make a better learning environment for aspiring computer engineers. http://littlecomputer3.com is an IDE for LC-3 assembly code. Intuitive debugging tools help visualize the data in memory and registers to help understand how computers work without abstraction.
+
+[Wikipedia](https://en.wikipedia.org/wiki/LC-3#cite_note-CompSysBook-1)
+
+ > Little Computer 3, or LC-3, is a type of computer educational programming language, an assembly language, which is a type of low-level programming language. The LC-3 was developed by Yale N. Patt at the University of Texas at Austin and Sanjay J. Patel at the University of Illinois at Urbana–Champaign. Their specification of the instruction set, the overall architecture of the LC-3, and a hardware implementation can be found in their textbook "Introduction to Computing Systems."
+
+You can write either binary or assembly code and run it directly in your browser. I have built an interpreter and parser in JavaScript; everything is run locally.
+
+Try the sample program by following these simple steps:
+
+* go to [the website](http://littlecomputer3.com)
+* click the play button
+* click the terminal in the bottom right
+* type on the keyboard
+* press enter twice to terminate the programming
+
+----------
+
+**Wanna Talk?**
+
+http://schultheiss.io/connect.html
