@@ -117,7 +117,6 @@ function pass_one() {
       continue;
     }
   }
-  // update("passedone"); // now at the same time
   console.log("pass one done");
   pass_two();
 }

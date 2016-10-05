@@ -2,6 +2,11 @@
 // Joshua Schultheiss 2016
 //
 
+function test_func_13() {
+    var key = window.event.keyCode;
+
+    console.log(key);
+}
 //////////////////////////////////////////////////////////////////////////////////////////////
 function update(status) {
 
@@ -88,27 +93,46 @@ $(document).ready(function() {
 ////////////////////////////////////////////////
 /* polling */
 
+  $("textarea").keyup(function(e) {
+    //console.log(program);
+    var code = e.keyCode ? e.keyCode : e.which;
+    if (code == 13) {  // Enter keycode
+      document.getElementById('terminal').innerHTML = "";
+      if(!$('#sidebar_help').hasClass("hide")) {
+        $('#sidebar_help').addClass("hide");
+      } else if(!$('#sidebar_github').hasClass("hide")) {
+        $('#sidebar_github').addClass("hide");
+      } else if(!$('#sidebar_styles').hasClass("hide")) {
+        $('#sidebar_styles').addClass("hide");
+      }
+      $("#sidebar_debugger").removeClass("hide");
+      $(dump_type).addClass('active');             // change for default memory dump representation
+      if(is_assembly()) {
+        pass_one();
+      } else {
+        store();
+      }
+      $('#hex').addClass('enabled');
+      $('#ascii').addClass('enabled');
+      $('#decimal').addClass('enabled');
+      $('#binary').addClass('enabled');
+      $('#assembly').addClass('enabled');
+
+      $('#button_left').addClass('active');
+      $('#button_right').addClass('active');
+    }
+  });
+
   $("body").keypress(function(e){
     var press = e.which;
 
-    console.log(press);
+    console.log(press + " - key code pressed");
     storage["1111111000000010"] = decimal_to_binary(press);
     storage["1111111000000000"] = "1000000000000000";
     setTimeout(function(){storage["1111111000000000"] = "0000000000000000";}, 8);
     // TODO KBSR
   });
 
-$(function() {
-  $("#editor").keypress(function(e){
-    console.log(press);
-    var press = e.which;
-    if(press == 13) {
-      e.preventDefault();
-      pass_one();
-    }
-    console.log(press);
-  });
-});
 ////////////////////////////////////////////////
 /* listeners */
 

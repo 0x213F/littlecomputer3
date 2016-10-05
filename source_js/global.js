@@ -2,8 +2,6 @@
 // Joshua Schultheiss 2016
 //
 
-var ping = new Audio("boop.wav");
-
 // These are our eight registers used throughout the LC-3
 var r0 = r1 = r2 = r3 = r4 = r5 = r6 = r7 = "0000000000000000";
 
@@ -12,6 +10,9 @@ var pc;
 
 // This is the CC storing the value to be compared for the BR subroutine
 var cc;
+
+// This is the CC storing the value to be compared for the BR subroutine
+var nzp;
 
 // A temporary solution for infinite loop programs
 var oops = 0;
@@ -45,6 +46,8 @@ var linked_list = null;
 
 // type of program running
 var program = undefined // or exec
+
+var ping = new Audio("media/boop.wav");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
