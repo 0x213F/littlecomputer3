@@ -2,7 +2,7 @@
 
 ----------
 
-[Marketing Page](http://uiucwp.com/submissions/2/jschlth2/S942CQ/public/index.html)
+[Marketing Page](http://schultheiss.io/498rk/mp2)
 
 The goal of this project is to make a better learning environment for aspiring computer engineers. http://littlecomputer3.com is an IDE for LC-3 assembly code. Intuitive debugging tools help visualize the data in memory and registers to help understand how computers work without abstraction.
 
