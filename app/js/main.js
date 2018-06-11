@@ -1,2 +1,1 @@
-const lc3_instance = new LC3();
-lc3_instance.init("ide");
+const lc3_instance = new LC3($("#ide").get(0));
