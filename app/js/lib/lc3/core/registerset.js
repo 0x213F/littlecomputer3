@@ -1,5 +1,7 @@
 function RegisterSet(num_gpr) {
-  if(num_gpr > 8 || num_gpr < 0) {
+  if(num_gpr === undefined) {
+    num_gpr = 8
+  } else if(num_gpr > 8 || num_gpr < 0) {
     return null;
   }
 
