@@ -2,12 +2,12 @@
  * `util.c` defines some utility functions
  */
 
+#include <stdint.h>
 #include "core.h"
 #include "util.h"
-#include "uint.h"
 
-void setcc(uint rslt) {
-	uint cc = 0x2;
+void setcc(uint16_t rslt) {
+	uint16_t cc = 0x2;
 	if(rslt > 0) {
 		cc >>= 1;
 	} else if(rslt < 0) {
@@ -18,11 +18,7 @@ void setcc(uint rslt) {
 }
 
 // sign extend val (which is w bits wide) to 16 bits
-uint sext16(uint val, uint w) {
-	return ~(~0<<w) & val | (1<<(w-1) & val ? ~(~(uint)0>>w) : 0);
-}
-
-uint trunc16(uint val) {
-	return val & 0xffff;
+uint16_t sext16(uint16_t val, uint16_t w) {
+	return ~(~0<<w) & val | (1<<(w-1) & val ? ~(~(uint16_t)0>>w) : 0);
 }
 

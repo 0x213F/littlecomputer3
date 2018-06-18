@@ -2,9 +2,8 @@
  * `util.h` declares some utility functions
  */
 
-#include "uint.h"
+#include <stdint.>
 
-extern void setcc(uint rslt);
-extern uint sext16(uint val, uint w);
-extern uint trunc16(uint val);
+extern void setcc(uint16_t rslt);
+extern uint16_t sext16(uint16_t val, uint16_t w);
 
